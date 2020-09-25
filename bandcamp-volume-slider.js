@@ -8,7 +8,7 @@
 // @grant        GM_addStyle
 // ==/UserScript==
 
-(function() {
+(function () {
     'use strict';
     GM_addStyle(`
 input[type=range] {
@@ -47,39 +47,42 @@ input[type=range]::-moz-range-track {
   color:black;
   font-weight:bold;
 }
-`)
-    var audioTag = document.getElementsByTagName("audio")[0];
-    var properties = {
-        type: "range",
+`);
+    let audioTag = document.getElementsByTagName('audio')[0];
+    let properties = {
+        type: 'range',
         min: 0,
         max: 1,
         step: 0.01,
         value: 0.5,
-        id: "VolumeSlider"
+        id: 'VolumeSlider',
     };
 
-   var volumeControl = document.createElement("input");
+    let volumeControl = document.createElement('input');
 
-    for (var prop in properties) {
+    for (let prop in properties) {
         volumeControl[prop] = properties[prop];
     }
 
-    if (document.getElementById("VolumeSlider")) {
-        document.getElementById("VolumeSlider").parentNode.replaceChild(volumeControl, document.getElementById("VolumeSlider"));
+    if (document.getElementById('VolumeSlider')) {
+        document.getElementById('VolumeSlider').parentNode.replaceChild(volumeControl, document.getElementById('VolumeSlider'));
     } else {
-        var genRow = document.createElement("tr");
-        var volHold = document.createElement("td");
-        var label = document.createElement("td");
+        let genRow = document.createElement('tr');
+        let volHold = document.createElement('td');
+        let label = document.createElement('td');
 
-        label.innerText = "Volume: ";
-        label.className = "VolumeSliderLabel";
+        label.innerText = 'Volume: ';
+        label.className = 'VolumeSliderLabel';
 
         volHold.appendChild(volumeControl);
         genRow.appendChild(label);
         genRow.appendChild(volHold);
-        document.getElementById("trackInfoInner").children[0].children[0].children[0].appendChild(genRow);
+        document.getElementById('trackInfoInner').children[0].children[0].children[0].appendChild(genRow);
     }
-    volumeControl.addEventListener("input", function() { audioTag.volume = volumeControl.value });
-    volumeControl.addEventListener("change", function(){ audioTag.volume = volumeControl.value });
-
+    volumeControl.addEventListener('input', function () {
+        audioTag.volume = volumeControl.value;
+    });
+    volumeControl.addEventListener('change', function () {
+        audioTag.volume = volumeControl.value;
+    });
 })();
