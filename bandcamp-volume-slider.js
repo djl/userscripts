@@ -2,10 +2,12 @@
 // @name         Bandcamp Volume Slider
 // @description  Adds a volume slider to Bandcamp pages
 // @namespace    github.com/djl
-// @version      0.1
+// @version      0.2
 // @author       djl
 // @include      /^https?://[^/]+/(?:album|track)/[^/]+$/
 // @grant        GM_addStyle
+// @grant        GM_setValue
+// @grant        GM_getValue
 // ==/UserScript==
 
 (function () {
@@ -54,7 +56,7 @@ input[type=range]::-moz-range-track {
         min: 0,
         max: 1,
         step: 0.01,
-        value: 0.5,
+        value: parseFloat(GM_getValue('volume', '0.5')),
         id: 'VolumeSlider',
     };
 
@@ -81,8 +83,10 @@ input[type=range]::-moz-range-track {
     }
     volumeControl.addEventListener('input', function () {
         audioTag.volume = volumeControl.value;
+        GM_setValue('volume', volumeControl.value);
     });
     volumeControl.addEventListener('change', function () {
         audioTag.volume = volumeControl.value;
+        GM_setValue('volume', volumeControl.value);
     });
 })();
