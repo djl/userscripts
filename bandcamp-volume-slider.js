@@ -66,8 +66,10 @@ input[type=range]::-moz-range-track {
         volumeControl[prop] = properties[prop];
     }
 
-    if (document.getElementById('VolumeSlider')) {
-        document.getElementById('VolumeSlider').parentNode.replaceChild(volumeControl, document.getElementById('VolumeSlider'));
+    let elem = document.getElementById('VolumeSlider');
+    if (elem) {
+        elem.parentNode.replaceChild(volumeControl, document.getElementById('VolumeSlider'));
+        elem.volume = volumeControl.value;
     } else {
         let genRow = document.createElement('tr');
         let volHold = document.createElement('td');
@@ -80,6 +82,7 @@ input[type=range]::-moz-range-track {
         genRow.appendChild(label);
         genRow.appendChild(volHold);
         document.getElementById('trackInfoInner').children[0].children[0].children[0].appendChild(genRow);
+        audioTag.volume = properties.value;
     }
     volumeControl.addEventListener('input', function () {
         audioTag.volume = volumeControl.value;
