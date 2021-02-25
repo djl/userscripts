@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Musicbrainz: Copy release info as directory
 // @description  Copy release info as directory. Useful when combined with EAC/XLD/whipper
-// @version      2021.02.22.1
+// @version      2021.02.24.1
 // @namespace    github.com/djl
 // @author       djl
 // @grant        GM_setClipboard
@@ -12,7 +12,11 @@
     const json = JSON.parse(js.innerText);
     let cats = '';
     if (json.catalogNumber) {
-        cats = ` {${json.catalogNumber.join(', ')}}`;
+        if (Array.isArray(json.catalogNumber)) {
+            cats = ` {${json.catalogNumber.join(', ')}}`;
+        } else if (json.catalogNumber != '[none]') {
+            cats = json.catalogNumber;
+        }
     }
     const date = json.hasReleaseRegion[0].releaseDate.split('-')[0];
     const fmt = `${json.releaseOf.creditedTo} - ${json.releaseOf.name} (${date}) [FLAC]${cats}`;
