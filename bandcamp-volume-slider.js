@@ -5,6 +5,7 @@
 // @version      0.2
 // @author       djl
 // @include      /^https?://[^/]+/(?:album|track)/[^/]+$/
+// @run-at       document-idle
 // @grant        GM_addStyle
 // @grant        GM_setValue
 // @grant        GM_getValue
