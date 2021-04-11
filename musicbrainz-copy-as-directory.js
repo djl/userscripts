@@ -1,11 +1,11 @@
 // ==UserScript==
 // @name         Musicbrainz: Copy release info as directory
 // @description  Copy release info as directory. Useful when combined with EAC/XLD/whipper
-// @version      2021.03.20.1
+// @version      2021.04.11.1
 // @namespace    github.com/djl
 // @author       djl
 // @grant        GM_setClipboard
-// @include      /^https?:\/\/(\w+\.)?musicbrainz\.org\/release\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/?
+// @include       *://musicbrainz.org/release/*
 // ==/UserScript==
 
 function clean(s) {
