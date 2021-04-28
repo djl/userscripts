@@ -1,15 +1,41 @@
 // ==UserScript==
 // @name         Musicbrainz: Copy release info as directory
 // @description  Copy release info as directory. Useful when combined with EAC/XLD/whipper
-// @version      2021.04.11.1
+// @version      2021.04.18.1
 // @namespace    github.com/djl
 // @author       djl
 // @grant        GM_setClipboard
 // @include       *://musicbrainz.org/release/*
 // ==/UserScript==
 
+// Unwanted catalog numbers
+const unwantedCats = ['[none]'];
+
 function clean(s) {
     return s.replace(/[<>:/\\*?"]/g, '_');
+}
+
+function credits(json) {
+    if (json.creditedTo) {
+        return json.creditedTo;
+    } else {
+        return json.releaseOf.creditedTo;
+    }
+}
+
+function cat(json) {
+    if (!json.catalogNumber) {
+        return '';
+    }
+    let r = json.catalogNumber;
+    if (Array.isArray(json.catalogNumber)) {
+        r = json.catalogNumber.filter(function (elem) {
+            return elem && !unwantedCats.includes(elem);
+        })[0];
+    } else if (unwantedCats.includes(r)) {
+        return '';
+    }
+    return ` {${r}}`;
 }
 
 (function () {
@@ -18,17 +44,9 @@ function clean(s) {
         return;
     }
     const json = JSON.parse(js.innerText);
-    let cats = '';
-    if (json.catalogNumber) {
-        if (Array.isArray(json.catalogNumber)) {
-            cats = `${json.catalogNumber.join(', ')}`;
-        } else if (json.catalogNumber != '[none]') {
-            cats = `${json.catalogNumber}`;
-        }
-        cats = ` {${cats}}`;
-    }
+    const cats = `${cat(json)}`;
     const date = json.hasReleaseRegion[0].releaseDate.split('-')[0];
-    const fmt = `${json.releaseOf.creditedTo} - ${json.name} (${date}) [FLAC]${cats}`;
+    const fmt = `${credits(json)} - ${json.name} (${date}) [FLAC]${cats}`;
     const list = document.querySelector('div.tabs ul.tabs');
     const li = document.createElement('li');
     const lia = document.createElement('a');
