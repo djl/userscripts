@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Musicbrainz: Copy release info as directory
 // @description  Copy release info as directory. Useful when combined with EAC/XLD/whipper
-// @version      2021.04.18.1
+// @version      2021.07.05.1
 // @namespace    github.com/djl
 // @author       djl
 // @grant        GM_setClipboard
@@ -9,10 +9,11 @@
 // ==/UserScript==
 
 // Unwanted catalog numbers
+// MB really needs a "this release has no cat no." option
 const unwantedCats = ['[none]'];
 
 function clean(s) {
-    return s.replace(/[<>:/\\*?"]/g, '_');
+    return s.replace(/[|<>:/\\*?"]/g, '_');
 }
 
 function credits(json) {
