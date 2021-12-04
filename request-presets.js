@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Request presets
 // @description  Request presets
-// @namespace    github.com/djl
+// @namespace    github.com/djl/userscripts
 // @version      2021-09-10-01
 // @author       djl
 // @include      /^https?://[^/]+/requests.php/

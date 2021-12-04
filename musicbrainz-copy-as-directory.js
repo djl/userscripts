@@ -2,7 +2,7 @@
 // @name         Musicbrainz: Copy release info as directory
 // @description  Copy release info as directory. Useful when combined with EAC/XLD/whipper
 // @version      2021.07.05.1
-// @namespace    github.com/djl
+// @namespace    github.com/djl/userscripts
 // @author       djl
 // @grant        GM_setClipboard
 // @include       *://musicbrainz.org/release/*

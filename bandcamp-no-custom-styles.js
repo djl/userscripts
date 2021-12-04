@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bandcamp: No custom styles
 // @description  Gets rid of an artist's custom styles
-// @namespace    github.com/djl
+// @namespace    github.com/djl/userscripts
 // @version      2021-09-24.1
 // @author       djl
 // @include      /^https?://[^/]+/(?:album|track)/[^/]+$/

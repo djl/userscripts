@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bandcamp Volume Slider
 // @description  Adds a volume slider to Bandcamp pages
-// @namespace    github.com/djl
+// @namespace    github.com/djl/userscripts
 // @version      0.2
 // @author       djl
 // @include      /^https?://[^/]+/(?:album|track)/[^/]+$/

@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name        YouTube RSS Feed
-// @namespace   https://github.com/djl/userscripts
+// @namespace   github.com/djl/userscripts
 // @author      djl
 // @version     2020.11.06.1
 // @description Add an RSS feed link to channel pages

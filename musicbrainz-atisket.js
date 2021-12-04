@@ -2,7 +2,7 @@
 // @name         Musicbrainz a-tisket
 // @description  Add a-tisket links to iTunes, Apple Music and Spotify URLs
 // @version      2021.07.09.1
-// @namespace    github.com/djl
+// @namespace    github.com/djl/userscripts
 // @author       djl
 // @include      http*://*musicbrainz.org/*
 // ==/UserScript==

@@ -2,7 +2,7 @@
 // @name         Cue Trumps
 // @description  Show "Trumpable" Tag for torrents that have a 100% log and no cue sheet.
 // @version      2021-09-09-01
-// @namespace    github.com/djl
+// @namespace    github.com/djl/userscripts
 // @author       djl
 // @include      https://orpheus.network/artist.php?id=*
 // @include      https://orpheus.network/torrents.php?id=*

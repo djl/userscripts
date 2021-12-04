@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Bleep: Display cat no.
-// @namespace    github.com/djl
+// @namespace    github.com/djl/userscripts
 // @version      2021-12-01.1
 // @description  Display cat no. next to label
 // @author       djl
