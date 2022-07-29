@@ -1,16 +1,16 @@
 // ==UserScript==
 // @name         Discogs: Highlight master release
 // @namespace    github.com/djl/userscripts
-// @version      0.1
+// @version      2022-07-29.1
 // @description  Highlight master release in Discogs search results
 // @author       djl
-// @include      https://www.discogs.com/*
+// @match        https://*.discogs.com/*
 // @grant        none
 // ==/UserScript==
 
 (function () {
     'use strict';
-    document.querySelectorAll('div.card[data-object-type="master release"]').forEach(function (elem) {
+    document.querySelectorAll('li.card[data-object-type="master release"]').forEach(function (elem) {
         const div = document.createElement('div');
         div.style.cssText = 'position: absolute; width 100%; top: 124px; left: 0;';
         const span = document.createElement('span');
