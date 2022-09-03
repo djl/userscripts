@@ -1,10 +1,13 @@
 // ==UserScript==
-// @name         Musicbrainz a-tisket
+// @name         Musicbrainz: a-tisket
 // @description  Add a-tisket links to iTunes, Apple Music and Spotify URLs
-// @version      2021.07.09.1
+// @version      2022.09.03.01
 // @namespace    github.com/djl/userscripts
 // @author       djl
-// @include      http*://*musicbrainz.org/*
+// @updateURL    https://raw.githubusercontent.com/djl/userscripts/master/musicbrainz-atisket.user.js
+// @downloadURL  https://raw.githubusercontent.com/djl/userscripts/master/musicbrainz-atisket.user.js
+// @match        *://www.musicbrainz.org/*
+// @match        *://musicbrainz.org/*
 // ==/UserScript==
 
 const atiskets = ['https://atisket.pulsewidth.org.uk'];

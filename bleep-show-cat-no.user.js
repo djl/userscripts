@@ -1,10 +1,12 @@
 // ==UserScript==
 // @name         Bleep: Display cat no.
 // @namespace    github.com/djl/userscripts
-// @version      2021-12-01.1
+// @version      2022.09.03.01
 // @description  Display cat no. next to label
 // @author       djl
-// @include      /^https://bleep\.com/release/(.*)/
+// @updateURL    https://raw.githubusercontent.com/djl/userscripts/master/bleep-show-cat-no.user.js
+// @downloadURL  https://raw.githubusercontent.com/djl/userscripts/master/bleep-show-cat-no.user.js
+// @match        *://bleep.com/release/*
 // @grant        none
 // ==/UserScript==
 

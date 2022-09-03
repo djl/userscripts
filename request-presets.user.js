@@ -2,9 +2,12 @@
 // @name         Request presets
 // @description  Request presets
 // @namespace    github.com/djl/userscripts
-// @version      2021-09-10-01
+// @version      2022.09.03.01
+// @updateURL    https://raw.githubusercontent.com/djl/userscripts/master/request-presets.user.js
+// @downloadURL  https://raw.githubusercontent.com/djl/userscripts/master/request-presets.user.js
 // @author       djl
-// @include      /^https?://[^/]+/requests.php/
+// @match        *://orpheus.network/*
+// @match        *://redacted.ch/*
 // @run-at       document-idle
 // ==/UserScript==
 

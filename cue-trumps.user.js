@@ -1,9 +1,11 @@
 // ==UserScript==
 // @name         Cue Trumps
 // @description  Show "Trumpable" Tag for torrents that have a 100% log and no cue sheet.
-// @version      2022-09-02-01
-// @namespace    github.com/djl
+// @version      2022.09.03.01
+// @namespace    github.com/djl/userscripts
 // @author       djl
+// @updateURL    https://raw.githubusercontent.com/djl/userscripts/master/cue-trumps.user.js
+// @downloadURL  https://raw.githubusercontent.com/djl/userscripts/master/cue-trumps.user.js
 // @match        *://orpheus.network/*
 // @match        *://redacted.ch/*
 // @run-at       document-idle

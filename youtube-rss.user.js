@@ -1,9 +1,11 @@
 // ==UserScript==
-// @name        YouTube RSS Feed
+// @name        YouTube: RSS Feed
 // @namespace   github.com/djl/userscripts
-// @author      djl
-// @version     2022.02.06.1
 // @description Add an RSS feed link to channel pages
+// @author      djl
+// @version     2022.09.03.01
+// @updateURL   https://raw.githubusercontent.com/djl/userscripts/master/youtube-rss.user.js
+// @downloadURL https://raw.githubusercontent.com/djl/userscripts/master/youtube-rss.user.js
 // @match       *://www.youtube.com/*
 // @grant       none
 // @run-at      document-end

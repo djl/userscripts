@@ -1,11 +1,13 @@
 // ==UserScript==
 // @name         Musicbrainz: Copy release info as directory
 // @description  Copy release info as directory. Useful when combined with EAC/XLD/whipper
-// @version      2021.07.05.1
+// @version      2022.09.03.01
 // @namespace    github.com/djl/userscripts
 // @author       djl
+// @updateURL    https://raw.githubusercontent.com/djl/userscripts/master/musicbrainz-copy-as-directory.user.js
+// @downloadURL  https://raw.githubusercontent.com/djl/userscripts/master/musicbrainz-copy-as-directory.user.js
 // @grant        GM_setClipboard
-// @include       *://musicbrainz.org/release/*
+// @match        *://musicbrainz.org/release/*
 // ==/UserScript==
 
 // Unwanted catalog numbers

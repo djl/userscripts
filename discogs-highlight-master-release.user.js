@@ -1,9 +1,11 @@
 // ==UserScript==
 // @name         Discogs: Highlight master release
 // @namespace    github.com/djl/userscripts
-// @version      2022-07-29.1
+// @version      2022.09.03.01
 // @description  Highlight master release in Discogs search results
 // @author       djl
+// @updateURL    https://raw.githubusercontent.com/djl/userscripts/master/discogs-highlight-master-release.user.js
+// @downloadURL  https://raw.githubusercontent.com/djl/userscripts/master/discogs-highlight-master-release.user.js
 // @match        https://*.discogs.com/*
 // @grant        none
 // ==/UserScript==

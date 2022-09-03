@@ -1,9 +1,11 @@
 // ==UserScript==
 // @name         GitHub: Subscriptions issues link
-// @namespace    djl
-// @version      2022.08.31.1
+// @namespace    github.com/djl/userscripts
+// @version      2022.09.03.01
 // @description  Add a link to the subscribed issues page in the nav bar.
 // @author       djl
+// @updateURL    https://raw.githubusercontent.com/djl/userscripts/master/github-subscriptions-link.user.js
+// @downloadURL  https://raw.githubusercontent.com/djl/userscripts/master/github-subscriptions-link.user.js
 // @match        https://github.com/*
 // @grant        none
 // ==/UserScript==
