@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Musicbrainz: Copy release info.
 // @description  Copy release info from MusicBrainz
-// @version      2023.01.19.01
+// @version      2023.01.20.01
 // @namespace    github.com/djl/userscripts
 // @author       djl
 // @updateURL    https://raw.githubusercontent.com/djl/userscripts/master/musicbrainz-copy-info.user.js
@@ -43,7 +43,7 @@ function cat(json) {
 }
 
 function addButton(text, func) {
-    const list = document.querySelector('div.tabs ul.tabs');
+    const list = document.getElementById('copying');
     const li = document.createElement('li');
     const lia = document.createElement('a');
     lia.href = '#';
@@ -51,7 +51,6 @@ function addButton(text, func) {
     li.appendChild(lia);
     list.appendChild(li);
     lia.addEventListener('click', function (event) {
-        li.classList.add('sel');
         func(event);
         lia.text = 'Copied!';
         setTimeout(function () {
@@ -63,6 +62,17 @@ function addButton(text, func) {
 }
 
 (function () {
+    const header = document.createElement('h2');
+    header.innerText = 'Copy Information';
+
+    const ul = document.createElement('ul');
+    ul.classList.add('links');
+    ul.id = 'copying';
+
+    const target = document.querySelector('h2.editing');
+    target.parentNode.insertBefore(header, target);
+    target.parentNode.insertBefore(ul, target);
+
     if (window.location.href.includes('/release/')) {
         addButton('Copy as Directory', function () {
             const json = JSON.parse(document.querySelector("script[type='application/ld+json']").textContent);
