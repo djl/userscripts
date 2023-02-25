@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Musicbrainz: Copy release info.
 // @description  Copy release info from MusicBrainz
-// @version      2023.01.20.01
+// @version      2023.02.25.01
 // @namespace    github.com/djl/userscripts
 // @author       djl
 // @updateURL    https://raw.githubusercontent.com/djl/userscripts/master/musicbrainz-copy-info.user.js
@@ -62,6 +62,9 @@ function addButton(text, func) {
 }
 
 (function () {
+    if (window.location.href.includes("/discids")) {
+        return;
+    }
     const header = document.createElement("h2");
     header.innerText = "Copy Information";
 
