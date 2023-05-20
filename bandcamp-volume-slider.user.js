@@ -14,7 +14,7 @@
 // ==/UserScript==
 
 (function () {
-    'use strict';
+    "use strict";
     GM_addStyle(`
 input[type=range] {
   -webkit-appearance: none;
@@ -53,46 +53,51 @@ input[type=range]::-moz-range-track {
   font-weight:bold;
 }
 `);
-    let audioTag = document.getElementsByTagName('audio')[0];
+    let audioTag = document.getElementsByTagName("audio")[0];
     let properties = {
-        type: 'range',
+        type: "range",
         min: 0,
         max: 1,
         step: 0.01,
-        value: parseFloat(GM_getValue('volume', '0.5')),
-        id: 'VolumeSlider',
+        value: parseFloat(GM_getValue("volume", "0.5")),
+        id: "VolumeSlider",
     };
 
-    let volumeControl = document.createElement('input');
+    let volumeControl = document.createElement("input");
 
     for (let prop in properties) {
         volumeControl[prop] = properties[prop];
     }
 
-    let elem = document.getElementById('VolumeSlider');
+    let elem = document.getElementById("VolumeSlider");
     if (elem) {
-        elem.parentNode.replaceChild(volumeControl, document.getElementById('VolumeSlider'));
+        elem.parentNode.replaceChild(
+            volumeControl,
+            document.getElementById("VolumeSlider")
+        );
         elem.volume = volumeControl.value;
     } else {
-        let genRow = document.createElement('tr');
-        let volHold = document.createElement('td');
-        let label = document.createElement('td');
+        let genRow = document.createElement("tr");
+        let volHold = document.createElement("td");
+        let label = document.createElement("td");
 
-        label.innerText = 'Volume: ';
-        label.className = 'VolumeSliderLabel';
+        label.innerText = "Volume: ";
+        label.className = "VolumeSliderLabel";
 
         volHold.appendChild(volumeControl);
         genRow.appendChild(label);
         genRow.appendChild(volHold);
-        document.getElementById('trackInfoInner').children[0].children[0].children[0].appendChild(genRow);
+        document
+            .getElementById("trackInfoInner")
+            .children[0].children[0].children[0].appendChild(genRow);
         audioTag.volume = properties.value;
     }
-    volumeControl.addEventListener('input', function () {
+    volumeControl.addEventListener("input", function () {
         audioTag.volume = volumeControl.value;
-        GM_setValue('volume', volumeControl.value);
+        GM_setValue("volume", volumeControl.value);
     });
-    volumeControl.addEventListener('change', function () {
+    volumeControl.addEventListener("change", function () {
         audioTag.volume = volumeControl.value;
-        GM_setValue('volume', volumeControl.value);
+        GM_setValue("volume", volumeControl.value);
     });
 })();

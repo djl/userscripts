@@ -12,18 +12,24 @@
 // ==/UserScript==
 
 (function () {
-    'use strict';
+    "use strict";
     if (!/(artists|torrents).php\?id/.test(window.location)) {
         return;
     }
-    let torrents = document.querySelectorAll('div.torrent_info');
+    let torrents = document.querySelectorAll("div.torrent_info");
     if (torrents.length == 0) {
-        torrents = document.querySelectorAll('tr.torrent_row td:first-child > a');
+        torrents = document.querySelectorAll(
+            "tr.torrent_row td:first-child > a"
+        );
     }
     torrents.forEach(torrent => {
         const text = torrent.innerText;
-        if (text.includes('Log (100%)') && !text.includes('Cue') && !text.includes('Trumpable')) {
-            torrent.querySelector('strong').innerText += ' [TRUMPABLE!]';
+        if (
+            text.includes("Log (100%)") &&
+            !text.includes("Cue") &&
+            !text.includes("Trumpable")
+        ) {
+            torrent.querySelector("strong").innerText += " [TRUMPABLE!]";
         }
     });
 })();

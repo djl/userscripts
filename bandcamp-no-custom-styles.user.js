@@ -11,7 +11,7 @@
 // @run-at       document-body
 // ==/UserScript==
 (function () {
-    'use strict';
-    document.querySelector('style#custom-design-rules-style').remove();
-    document.querySelector('body').classList.remove('invertIconography');
+    "use strict";
+    document.querySelector("style#custom-design-rules-style").remove();
+    document.querySelector("body").classList.remove("invertIconography");
 })();

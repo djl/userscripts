@@ -10,39 +10,39 @@
 // ==/UserScript==
 
 function clean(s) {
-    s = s.replace(/[|<>:/\\*?"]/g, '_');
-    s = s.replace(/&amp;/g, '&');
+    s = s.replace(/[|<>:/\\*?"]/g, "_");
+    s = s.replace(/&amp;/g, "&");
     return s;
 }
 
 (function () {
-    let title = document.querySelector('div.title h2 a');
+    let title = document.querySelector("div.title h2 a");
     if (!title) {
         return;
     }
 
     title = clean(title.innerHTML);
 
-    const year = document.querySelector('div.title h2 span.release_date');
+    const year = document.querySelector("div.title h2 span.release_date");
     if (!year) {
         return;
     }
 
-    const where = document.querySelector('div.facts');
+    const where = document.querySelector("div.facts");
     if (!where) {
         return;
     }
 
-    const span = document.createElement('span');
-    const a = document.createElement('a');
-    a.href = '#';
-    a.text = 'Copy as Directory';
+    const span = document.createElement("span");
+    const a = document.createElement("a");
+    a.href = "#";
+    a.text = "Copy as Directory";
     span.appendChild(a);
     where.appendChild(span);
-    a.addEventListener('click', function (event) {
+    a.addEventListener("click", function (event) {
         GM_setClipboard(`${title} ${year.innerHTML}`);
         const txt = a.text;
-        a.text = 'Copied!';
+        a.text = "Copied!";
         setTimeout(function () {
             a.text = txt;
         }, 3000);

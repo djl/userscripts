@@ -11,9 +11,11 @@
 // ==/UserScript==
 
 (function () {
-    'use strict';
-    const label = document.querySelector('div.product-info dd.label');
-    const catno = document.querySelector('div.product-info dd.catalogue-number');
+    "use strict";
+    const label = document.querySelector("div.product-info dd.label");
+    const catno = document.querySelector(
+        "div.product-info dd.catalogue-number"
+    );
     console.log(label);
     console.log(catno);
     if (label == null || catno == null) {
