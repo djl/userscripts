@@ -2,11 +2,12 @@
 // @name         Bandcamp: Volume Slider
 // @description  Adds a volume slider to Bandcamp pages
 // @namespace    github.com/djl/userscripts
-// @version      2022.09.03.01
+// @version      2023.06.17.01
 // @author       djl
 // @updateURL    https://raw.githubusercontent.com/djl/userscripts/master/bandcamp-volume-slider.user.js
 // @downloadURL  https://raw.githubusercontent.com/djl/userscripts/master/bandcamp-volume-slider.user.js
-// @include      /^https?://[^/]+/(?:album|track)/[^/]+$/
+// @match        *://*/album/*
+// @match        *://*/track/*
 // @run-at       document-idle
 // @grant        GM_addStyle
 // @grant        GM_setValue
@@ -14,90 +15,63 @@
 // ==/UserScript==
 
 (function () {
-    "use strict";
+    'use strict';
     GM_addStyle(`
-input[type=range] {
-  -webkit-appearance: none;
+input[type=range]#VolumeSlider {
+  margin-top: 20px;
+  margin-left: 12px;
   width: 115%;
-  background: transparent;
-  margin-top:20px;
-}
-
-input[type=range]::-moz-range-thumb {
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  height: 22px;
-  width: 12px;
-  border-radius: 3px;
-  background: #ffffff;
-  cursor: pointer;
-}
-
-input[type=range]:focus {
-  outline: none;
-}
-
-input[type=range]::-moz-range-track {
-  width: 100%;
-  height: 8px;
-  cursor: pointer;
-  background: rgba(246,246,246,.1);
-  border-radius: 1.3px;
-  border: 0.2px solid rgba(190,190,190,.5);
 }
 
 .VolumeSliderLabel {
-  text-align:center;
+  background-color: white;
+  color: black;
+  font-weight: bold;
   line-height: 60px;
-  background-color:white;
-  color:black;
-  font-weight:bold;
+  text-align: center;
+  width: 55px;
 }
 `);
-    let audioTag = document.getElementsByTagName("audio")[0];
+    let audioTag = document.getElementsByTagName('audio')[0];
     let properties = {
-        type: "range",
+        type: 'range',
         min: 0,
         max: 1,
         step: 0.01,
-        value: parseFloat(GM_getValue("volume", "0.5")),
-        id: "VolumeSlider",
+        value: parseFloat(GM_getValue('volume', '0.5')),
+        id: 'VolumeSlider',
     };
 
-    let volumeControl = document.createElement("input");
+    let volumeControl = document.createElement('input');
 
     for (let prop in properties) {
         volumeControl[prop] = properties[prop];
     }
 
-    let elem = document.getElementById("VolumeSlider");
+    let elem = document.getElementById('VolumeSlider');
     if (elem) {
-        elem.parentNode.replaceChild(
-            volumeControl,
-            document.getElementById("VolumeSlider")
-        );
+        elem.parentNode.replaceChild(volumeControl, document.getElementById('VolumeSlider'));
         elem.volume = volumeControl.value;
     } else {
-        let genRow = document.createElement("tr");
-        let volHold = document.createElement("td");
-        let label = document.createElement("td");
+        let genRow = document.createElement('tr');
+        let volHold = document.createElement('td');
+        let label = document.createElement('td');
 
-        label.innerText = "Volume: ";
-        label.className = "VolumeSliderLabel";
+        label.innerText = 'Volume: ';
+        label.className = 'VolumeSliderLabel';
 
         volHold.appendChild(volumeControl);
         genRow.appendChild(label);
         genRow.appendChild(volHold);
-        document
-            .getElementById("trackInfoInner")
-            .children[0].children[0].children[0].appendChild(genRow);
+        document.getElementById('trackInfoInner').children[0].children[0].children[0].appendChild(genRow);
         audioTag.volume = properties.value;
     }
-    volumeControl.addEventListener("input", function () {
+    volumeControl.addEventListener('input', function () {
         audioTag.volume = volumeControl.value;
-        GM_setValue("volume", volumeControl.value);
+        GM_setValue('volume', volumeControl.value);
     });
-    volumeControl.addEventListener("change", function () {
+    volumeControl.addEventListener('change', function () {
         audioTag.volume = volumeControl.value;
-        GM_setValue("volume", volumeControl.value);
+        GM_setValue('volume', volumeControl.value);
     });
 })();
