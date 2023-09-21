@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cue Trumps
-// @description  Show "Trumpable" Tag for torrents that have a 100% log and no cue sheet.
-// @version      2022.09.03.01
+// @description  Make links red for torrents that have a 100% log and no cue sheet.
+// @version      2023.09.28.01
 // @namespace    github.com/djl/userscripts
 // @author       djl
 // @updateURL    https://raw.githubusercontent.com/djl/userscripts/master/cue-trumps.user.js
@@ -29,7 +29,7 @@
             !text.includes("Cue") &&
             !text.includes("Trumpable")
         ) {
-            torrent.querySelector("strong").innerText += " [TRUMPABLE!]";
+            torrent.style = "color: red;";
         }
     });
 })();
